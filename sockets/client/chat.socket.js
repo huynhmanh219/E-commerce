@@ -14,7 +14,7 @@ module.exports = (res)=> {
                    
                 images.push(link);
             }
-            console.log(data.images);
+        
             
             // save in databe
             const chat = new Chat({

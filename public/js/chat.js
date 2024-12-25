@@ -1,5 +1,6 @@
 import * as Popper from 'https://cdn.jsdelivr.net/npm/@popperjs/core@^2/dist/esm/index.js'
 import { FileUploadWithPreview } from 'https://unpkg.com/file-upload-with-preview/dist/index.js';
+
 //file-upload-with-preview
 const upload = new FileUploadWithPreview('upload-images',{
     multiple:true,
@@ -69,10 +70,16 @@ socket.on("SERVER_RETURN_MESSAGE", (data) => {
     ${htmlContent}
     ${htmlImages}
     `;
-
+    
+    
     body.insertBefore(div,boxTyping);
-
+    
     body.scrollTop = body.scrollHeight;
+    //preview images
+    if(htmlImages)
+    {
+        const gallery = new Viewer(div);
+    }
 });
 //end SERVER_RETURN_MESSAGE
 
@@ -193,3 +200,11 @@ if(elementListTyping)
 //END SERVER_RETURN_TYPING
 
 
+// PREVIEW FULL IMAGES
+const bodyChatPreView = document.querySelector(".chat .inner-body");
+if(bodyChatPreView)
+{
+    const gallery = new Viewer(bodyChatPreView);
+}
+
+// END PREVIEW FULL IMAGES
