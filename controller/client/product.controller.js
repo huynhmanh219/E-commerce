@@ -61,7 +61,7 @@ module.exports.detail =  async (req,res)=>{
                 _id: product.product_category_id,
                 deleted: false,
                 status:"active"
-            });
+            }); 
             product.category = category;
         }
 
